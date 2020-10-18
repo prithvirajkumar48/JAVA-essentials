@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>employee sales information </title>
+    <script type="text/javascript">
+    function calc()
+    {
+       form=document.getElementById("form1");
+       sales1=form.sales1.value;
+       sales2=form.sales2.value;
+       sales3=form.sales3.value;
+       sales4=form.sales4.value;
+       // Find the total -- TypeCast the values of the textboxes to integer.
+       total=parseInt(sales1)+parseInt(sales2)+parseInt(sales3)+parseInt(sales4);
+       form.total.value= total; // display the total into textbox.
+       form.avg.value= parseInt(total)/4; // typecast.
+       
+    //    if(sub1<35||sub2<35||sub3<35||sub4<35)
+    //    { form.result.value="Fail";}
+    //    else {form.result.value="Pass";}
+        // Grading system.
+       if(form.avg.value>20000)
+        {form.grade.value="2 percent";}
+       else if (form.avg.value>10000 && form.avg.value<20000)
+        {form.grade.value="7 percent";}
+       else if (form.avg.value>5000 && form.avg.value<10000)
+        {form.grade.value="5 percent";}
+       else if (form.avg.value>0 && form.avg.value<5000)
+        {form.grade.value="2 percent";}
+    }
+</script>
+</head>
+<body>
+<form id="form1">
+    Program 8. Student information.<br /><br />
+
+  Enter the Name :  <input type="text" size="20" name="name"/><br />
+   
+  Sales of the employee :  <input type="text" size="20" name="sales1"/><br />
+
+  Sales in Q2 :  <input type="text" size="20" name="sales2"/><br />
+
+  Sales in Q3 :  <input type="text" size="20" name="sales3"/><br />
+
+  Sales in Q4 :  <input type="text" size="20" name="sales4"/><br />
+
+ 
+  <input type="button" name="btn" value="Calculate" onclick="calc()"/><br />
+  Total : <input type="text" size="20" name="total"/><br />
+  Average : <input type="text" size="20" name="avg"/><br />
+  Criteria : <input type="text" size="20" name="grade"/><br />
+  <input type="reset" name="Btn2" value="Reset"/>
+</form>
+</body>
+</html>

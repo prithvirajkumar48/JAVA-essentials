@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Prime Generator</title>
+</head>
+<body>
+	<div id="res"></div>
+	<button id="generate">Generate more primes!</button>
+	<script type="text/javascript">
+	(function(){
+		"use strict";
+		
+		//Add event listener to the button
+		document.getElementById("generate").addEventListener("click", get_primes, false);
+	
+		var timeDiff  =  {
+			setStartTime:function ()
+			{
+				var d = new Date();
+				this.time  = d.getTime();
+			},
+			getDiff:function ()
+			{
+				var d2 = new Date();
+				return (d2.getTime()-this.time);
+			}
+		};
+		
+		function get_primes()
+		{
+			//Start the timer
+			timeDiff.setStartTime();
+			
+			//Define primes array
+			var primes = [];
+			
+			//Check for "primes" key in localstorage
+			if(localStorage.getItem("primes") != null)
+			{
+				var existing_primes = JSON.parse(localStorage.getItem("primes"));
+				var num_primes = existing_primes.length;
+				
+				// If there is a "primes" key in localstorage, add it to the 
+				// primes array
+				for(var i=0;i< num_primes;i++)
+				{
+					primes.push(existing_primes[i]);
+				}
+			}
+			else //Seed the prime generator with the first prime number
+			{
+				primes.push(2);
+			}
+			
+			// Get the largest existing prime, and add one 
+			// to make it the starting number in the search for the next prime
+			var start_num = primes[primes.length - 1] + 1;
+			
+			// Specify a sane ending point
+			var end_num = 9999 + start_num;
+			
+			// Flag for determining if a number is prime
+			var is_prime = true;
+			var x = 0;
+			
+			for(i = start_num;i < end_num;i++)
+			{
+				is_prime = true;
+				
+				num_primes = primes.length;
+				
+				for(x=0;x<num_primes;x++)
+				{
+					//If the remainder is 0, the number is a composite
+					if(i % primes[x] === 0)
+					{
+						is_prime = false;
+						break;
+					}
+				}
+				
+				// If the number is prime, add it to the primes array
+				if(is_prime === true)
+				{
+					primes.push(i);
+				}
+			}
+			
+			//Save the array in localStorage for the next round(s)
+			localStorage.setItem("primes", JSON.stringify(primes));
+			
+			var output = "";
+			
+			//String together all the primes
+			output += primes.join(", ");
+			
+			output += '<br /><br />';
+			
+			var total_time = timeDiff.getDiff();
+			
+			output += 'Generated '+primes.length+' primes in '+(total_time / 1000)+' seconds.';
+			
+			document.getElementById('res').innerHTML = output;
+			
+			location.href="#generate";
+		}
+	}());
+	</script>
+	<button onclick="localStorage.setItem('primes', null)">Start Over</button>
+</body>
+</html>
+

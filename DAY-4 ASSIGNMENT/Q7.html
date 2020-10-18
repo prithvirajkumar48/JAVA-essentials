@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to encode a URI.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var uri = "https://w3schools.com/my test.asp?name=ståle&car=saab";
+  var res = encodeURIComponent(uri);
+  document.getElementById("demo").innerHTML = res;
+}
+</script>
+
+</body>
+</html>

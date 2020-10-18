@@ -1,0 +1,13 @@
+<script>
+
+    var number = parseInt(prompt("Please enter a number greater than 100", ""));
+    
+    if (number > 100) {
+        document.write("Your number " + number + " is matches requirements", "");
+    } else if (isNaN(number)) {
+        parseInt(prompt("It is not a number. Please enter a number from 1 to 100", ""));
+    } else {
+        parseInt(prompt("Your number " + number + " is below 100. Please enter a number greater than 100", ""));
+    }
+    
+    </script>
