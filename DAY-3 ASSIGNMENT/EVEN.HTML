@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<script>
+  function myFunction() 
+  {
+  var person = prompt("Please enter your number", " ");
+  if (person %2==0) 
+  {
+    document.getElementById("demo").innerHTML =
+    "The number is even" +person;
+  }
+  else
+  {
+    document.getElementById("demo").innerHTML =
+    "The number is odd" +person; 
+  }
+}
+
+</script>
+
+</body>
+</html>
