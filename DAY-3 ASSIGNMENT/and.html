@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var person = prompt("Please enter your OS", " ");
+  var ver = prompt("Please enter your Version", " ");
+  if (person != null) {
+    document.getElementById("demo").innerHTML =
+    "Your OS is" + person+"and "+"Version is "+ver;
+  }
+}
+</script>
+
+</body>
+</html>

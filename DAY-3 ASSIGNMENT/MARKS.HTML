@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joe Peterson's Assignment 7</title>
+  <script>
+    function calculateGrade(){
+
+
+      document.getElementById("form1").style.display = "none";
+      document.getElementById("p1").style.display = "block";
+      var fname = document.getElementById("LastName").value;
+      var lname = document.getElementById("FirstName").value;
+      var valMidterm = document.getElementById("MidtermScore").value;
+      var valFinal = document.getElementById("FinalScore").value;
+      var lMidterm = document.getElementById("MidtermLetter").value;
+      var lFinal = document.getElementById("FinalLetter").value;
+      var homeworkArray = document.getElementById("HomeworkScores").value.split(',');
+      var classworkArray = document.getElementById("ActivityScores").value.split(',');
+
+  </script>
+</head>
+
+<body>
+<p><h1>Joe Peterson's Assignment 7</h1></p>
+<form name="input" id="form1" onsubmit="return calculateGrade()" style="display:form">
+First name: <input type="text" name="FirstName" id="FirstName" value="Joe"><br>
+Last name: <input type="text" name="LastName" id="LastName" value="Peterson"><br>
+Homework Scores (separate with commas): <input type="text" name="HomeworkScores" id="HomeworkScores" value="90, 80, 98"><br>
+Activity Scores (separate with commas): <input type="text" name="ActivityScores" id="ActivityScores" value="71, 65, 96"><br>
+Midterm Exam Percentage: <input type="text" name="MidtermScore" id="MidtermScore" value="91"><br>
+Midterm Exam Letter Grade: <input type="text" name="MidtermLetter" id="MidtermLetter" value="A"><br>
+Final Exam Percentage: <input type="text" name="FinalScore" id="FinalScore" value="75"><br>
+Final Exam Letter Grade: <input type="text" name="FinalLetter" id="FinalLetter" value="C"><br>
+<input type="submit" value="Submit">
+</form> 
+
+<p id="p1" style="display:none">Final course grade for <span id="fname">Joe</span> <span id="lname">Peterson</span> is: <span id="span1">X</span> (<span id="span2">yy</span>%)</p>
+
+</body>
+</html>
